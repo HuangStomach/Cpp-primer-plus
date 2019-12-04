@@ -27,7 +27,7 @@ int main(int argc, char const *argv[]) {
         for (int year = 0; year < Years; ++year) {
             cout << maxtemps[year][city] << "\t";
         }
-        cout << endl;   
+        cout << endl;
     }
 
     return 0;
