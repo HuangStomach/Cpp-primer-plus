@@ -15,7 +15,5 @@ int main(int argc, char const *argv[]) {
     
     cout << "Year " << year << " Cleo win" << endl;
     cout << "Cleo: " << cleo << " Daphne: " << daphne << endl;
-
-    /* code */
     return 0;
 }
