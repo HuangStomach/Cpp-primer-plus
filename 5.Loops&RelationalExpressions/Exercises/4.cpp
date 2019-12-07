@@ -4,7 +4,8 @@ using namespace std;
 int main(int argc, char const *argv[]) {
     const int begin = 100;
     int year = 0;
-    double daphne, cleo = begin;
+    double daphne = begin;
+    double cleo = begin;
 
     while (cleo <= daphne) {
         daphne += begin * 0.1;
