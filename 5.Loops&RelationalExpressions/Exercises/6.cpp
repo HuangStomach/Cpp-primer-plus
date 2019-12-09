@@ -1,31 +1,23 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
-struct car {
-    string name;
-    int year;
-};
-
 int main(int argc, char const *argv[]) {
-    int count;
-    cout << "Plz input count: ";
-    cin >> count;
-    car * cars = new car[count];
-    for (int i = 0; i < count; i++) {
-        cout << "Car " << i + 1;
-
-        cout << "Plz enter the make: ";
-        cin >> cars[i].name;
-        cout << "Plz enter the year made: ";
-        cin >> cars[i].year;
+    string months[12] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
+    int vals[3][12];
+    int res[3] = {0, 0, 0};
+    int total = 0;
+    
+    for (int j = 0; j < 3; ++j) {
+        for (int i = 0; i < 12; ++i) {
+            cout << "第" << j + 1 << "年" << months[i] <<  "月销售额: ";
+            cin >> vals[j][i];
+            res[j] += vals[j][i];
+        }
+        cout << "第" << j + 1 << "年总销售额: " << total << endl;
+        total += res[j];
     }
-
-    cout << "Here: ";
-    for (size_t i = 0; i < count; i++) {
-        cout << cars[i].name << " " << cars[i].year;
-    }
-
+    
+    cout << "总销售额: " << total << endl;
     return 0;
 }
