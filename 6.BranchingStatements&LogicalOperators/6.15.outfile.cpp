@@ -28,6 +28,7 @@ int main(int argc, char const *argv[]) {
     outFile << year << endl;
     outFile << a_price << endl;
     outFile << d_price << endl;
+    outFile.close();
 
     return 0;
 }
