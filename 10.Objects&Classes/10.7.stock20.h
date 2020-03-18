@@ -1,5 +1,5 @@
-#ifndef STOCK10_H_
-#define STOCK10_H_
+#ifndef STOCK20_H_
+#define STOCK20_H_
 
 #include <string>
 
@@ -20,7 +20,8 @@ public:
     void buy(long num, double price);
     void sell(long num, double price);
     void update(double price);
-    void show();
+    void show() const;
+    const Stock & topval(const Stock & s) const;
 };
 
 #endif
