@@ -8,7 +8,7 @@ public:
     Time();
     Time(int h, int m = 0);
     void AddMin(int m);
-    void addHr(int h);
+    void AddHr(int h);
     void Reset(int h = 0, int m = 0);
     Time Sum(const Time & t) const;
     void Show() const;
