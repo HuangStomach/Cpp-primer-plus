@@ -12,6 +12,8 @@ namespace VECTOR {
         double y;
         double mag;
         double ang;
+        Mode mode;
+        
         void set_mag();
         void set_ang();
         void set_x();
