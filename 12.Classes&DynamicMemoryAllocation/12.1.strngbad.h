@@ -11,5 +11,5 @@ public:
     StringBad();
     ~StringBad();
     friend std::ostream & operator<<(std::ostream & os, const StringBad & st);
-}
+};
 #endif
