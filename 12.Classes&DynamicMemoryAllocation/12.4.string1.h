@@ -28,7 +28,7 @@ public:
     friend bool operator==(const String &st, const String &st2);
 
     friend std::ostream & operator<<(std::ostream & os, const String & st);
-    friend std::istream & operator>>(std::istream & is, const String & st);
+    friend std::istream & operator>>(std::istream & is, String & st);
 
     static int HowMany();
 };
