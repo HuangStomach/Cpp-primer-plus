@@ -24,7 +24,7 @@ int main(int argc, char const *argv[]) {
     double perhour;
     cin >> perhour;
     double min_per_cust;
-    min_per_cust = MIN_PER_HR;
+    min_per_cust = MIN_PER_HR / perhour;
 
     Item temp;
     long turnaways = 0;
@@ -55,4 +55,8 @@ int main(int argc, char const *argv[]) {
     }
 
     return 0;
+}
+
+bool newcustiner(double x) {
+    return (std::rand() * x / RAND_MAX < 1);
 }
