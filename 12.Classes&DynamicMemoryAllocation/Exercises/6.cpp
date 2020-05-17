@@ -13,7 +13,8 @@ int main(int argc, char const *argv[]) {
     cout << "Enter Size: ";
     int qs;
     cin >> qs;
-    Queue line(qs);
+    Queue lineA(qs);
+    Queue lineB(qs);
 
     cout << "sim hours: ";
     int hours;
@@ -30,7 +31,8 @@ int main(int argc, char const *argv[]) {
         long turnaways = 0;
         long customers = 0;
         long sum_line = 0;
-        int wait_time = 0;
+        int wait_timeA = 0;
+        int wait_timeB = 0;
 
         served = 0;
         line_wait = 0;
@@ -38,21 +40,31 @@ int main(int argc, char const *argv[]) {
 
         for (int cycle = 0; cycle < cyclelimit; cycle++) {
             if (newcustomer(min_per_cust)) {
-                if (line.isfull()) turnaways++;
+                if (lineA.isfull() && lineB.isfull()) turnaways++;
                 else {
                     customers++;
                     temp.set(cycle);
-                    line.enqueue(temp);
+                    if (lineB.queuecount() > lineA.queuecount()) lineA.enqueue(temp);
+                    else lineB.enqueue(temp);
                 }
 
-                if (wait_time <= 0 && !line.isempty()) {
-                    line.dequeue(temp);
-                    wait_time = temp.ptime();
+                if (wait_timeA <= 0 && !lineA.isempty()) {
+                    lineA.dequeue(temp);
+                    wait_timeA = temp.ptime();
                     line_wait += cycle - temp.when();
                     served++;
                 }
-                if (wait_time > 0) wait_time--;
-                sum_line += line.queuecount();
+
+                if (wait_timeB <= 0 && !lineB.isempty()) {
+                    lineB.dequeue(temp);
+                    wait_timeB = temp.ptime();
+                    line_wait += cycle - temp.when();
+                    served++;
+                }
+
+                if (wait_timeA > 0) wait_timeA--;
+                if (wait_timeB > 0) wait_timeB--;
+                sum_line += (lineA.queuecount() + lineB.queuecount()) / 2;
             }
         }
         
