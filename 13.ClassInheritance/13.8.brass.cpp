@@ -49,3 +49,46 @@ BrassPlus::BrassPlus(const string & s, long an, double bal, double m1, double r)
     owesBank = 0.0;
     rate = r;
 }
+
+BrassPlus::BrassPlus(const Brass & ba, double m1, double r) : Brass(ba) {
+    maxLoan = m1;
+    owesBank = 0.0;
+    rate = r;
+}
+
+void BrassPlus::ViewAcct() const {
+    format initialState = setFormat();
+    precis prec = cout.precision(2);
+
+    Brass::ViewAcct();
+    cout << "Max loan: $" << maxLoan << endl;
+    cout << "Owed to bank: $" << owesBank << endl;
+    cout.precision(3);
+    cout << "Loan Rate: " << 100 * rate << "%\n";
+    restore(initialState, prec);
+}
+
+void BrassPlus::Withdraw(double amt) {
+    format initialState = setFormat();
+    precis prec = cout.precision(2);
+
+    double bal = Balance();
+    if (amt <= bal) Brass::Withdraw(amt);
+    else if (amt <= bal + maxLoan - owesBank) {
+        double advance = amt - bal;
+        owesBank += advance * (1.0 + rate);
+        Deposit(advance);
+        Brass::Withdraw(amt);
+    }
+    else cout << "cancelled.\n";
+    restore(initialState, prec);
+}
+
+format setFormat() {
+    return cout.setf(std::ios_base::fixed, std::ios_base::floatfield);
+}
+
+void restore(format f, precis p) {
+    cout.setf(f, std::ios_base::floatfield);
+    cout.precision(p);
+}
