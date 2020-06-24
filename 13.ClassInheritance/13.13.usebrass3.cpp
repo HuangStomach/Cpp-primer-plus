@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "13.7.brass.h"
+#include "13.11.acctabc.h"
 const int CLIENTS = 4;
 
 int main(int argc, char const *argv[]) {
@@ -8,7 +8,7 @@ int main(int argc, char const *argv[]) {
     using std::cout;
     using std::endl;
 
-    Brass * p_clients[CLIENTS];
+    AcctABC * p_clients[CLIENTS];
     std::string temp;
     long tempnum;
     double tempbal;
