@@ -31,7 +31,7 @@ public:
     private:
         string lbl;
     public:
-        nbad_index(const string & lb, int ix, const string & s = "Index error");
+        nbad_index(const string lb, int ix, const string & s = "Index error");
         const string & label_val() const { return lbl; }
         virtual ~nbad_index() throw() { }
     };
