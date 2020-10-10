@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <typeinfo>
 
 using namespace std;
 
@@ -32,7 +33,7 @@ public:
 Grand * GetOne();
 
 int main(int argc, char const *argv[]) {
-    srand(std::time(0));
+    srand(time(0));
     Grand * pg;
     Superb * ps;
     for (int i = 0; i < 5; i++) {
@@ -40,6 +41,9 @@ int main(int argc, char const *argv[]) {
         pg->Speak();
         if (ps = dynamic_cast<Superb *>(pg)) {
             ps->Say();
+        }
+        if (typeid(Magnificent) == typeid(*pg)) {
+            cout << "Yes, u r really magnificent.\n";
         }
     }
     
