@@ -24,7 +24,7 @@ int main(int argc, char const *argv[]) {
         << "Rating\tBook\n";
 
     for (i = 0; i < NUM; i++) {
-        cout << ratings[i] << "\t" << titles[i] <<
+        cout << ratings[i] << "\t" << titles[i] << endl;
     }
     
     return 0;
