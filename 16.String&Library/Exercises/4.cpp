@@ -16,8 +16,8 @@ int main(int argc, char const *argv[]) {
 int reduce(long ar[], int n) {
     list<int> re;
     re.insert(re.begin(), ar, ar + n);
-    re.unique();
     re.sort();
+    re.unique();
     return re.size();
 }
 
