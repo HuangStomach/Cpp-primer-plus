@@ -17,7 +17,7 @@ int main(int argc, char const *argv[]) {
     if (cin.peek() != '\n') cout << "truncate.\n";
     eatline();
 
-    cout << "name: " << name << "title: " << title <<< endl;
+    cout << "name: " << name << "title: " << title << endl;
 
     return 0;
 }
