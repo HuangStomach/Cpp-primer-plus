@@ -42,6 +42,8 @@ int main(int argc, char const *argv[]) {
         cin >> pl.population;
         cout << "Enter gravity: ";
         cin >> pl.g;
+        eatline();
+        fout.write((char *) &pl, sizeof pl);
         cout << "Enter name: ";
         cin.get(pl.name, 20);
     }
