@@ -16,7 +16,7 @@ bool FillReview(Review & rr);
 void ShowReview(const shared_ptr<Review> & rr);
 
 int main(int argc, char const *argv[]) {
-    vector<shared_ptr<Review>> books;
+    vector< shared_ptr<Review> > books;
     Review temp;
     shared_ptr<Review> review(new Review(temp));
     while (FillReview(temp)) books.push_back(review);
