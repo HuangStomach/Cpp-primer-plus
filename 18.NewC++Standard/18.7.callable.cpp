@@ -16,9 +16,9 @@ int main(int argc, char const *argv[]) {
     cout << "Fq:\n";
     cout << " " << use_f(y, Fq(5.0)) << endl;
     cout << "lambda 1:\n";
-    cout << " " << use_f(y, [](double u) { return u * u }) << endl;
+    cout << " " << use_f(y, [](double u) { return u * u; }) << endl;
     cout << "lambda 2:\n";
-    cout << " " << use_f(y, [](double u) { return u + u / 2.0 }) << endl;
+    cout << " " << use_f(y, [](double u) { return u + u / 2.0; }) << endl;
 
     return 0;
 }
