@@ -7,7 +7,7 @@ using namespace std;
 template<typename T, typename... Args>
 void show_list3(T value, Args... args) {
     cout << value << ", ";
-    show_list3(args)
+    show_list3(args...);
 }
 
 int main(int argc, char const *argv[]) {

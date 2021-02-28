@@ -12,7 +12,7 @@ void show_list(const T& value) {
 template<typename T, typename... Args>
 void show_list(const T& value, const Args&... args) {
     cout << value << ", ";
-    show_list(args)
+    show_list(args...);
 }
 
 int main(int argc, char const *argv[]) {
